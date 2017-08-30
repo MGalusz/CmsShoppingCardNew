@@ -13,6 +13,9 @@ namespace CmsShoppingCard
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/scrips").Include(
+            "~/Scripts/jquery-{version}.js",
+             "~/Scripts/bootstrap.js"));
 
             // Użyj wersji deweloperskiej biblioteki Modernizr do nauki i opracowywania rozwiązań. Następnie, kiedy wszystko będzie
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
