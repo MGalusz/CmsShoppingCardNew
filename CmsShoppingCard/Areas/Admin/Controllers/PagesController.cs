@@ -217,7 +217,7 @@ namespace CmsShoppingCard.Areas.Admin.Controllers
         }
 
 
-        // POST: Admin/Pages/DetailsPage/id
+        // Get: Admin/Pages/DetailsPage/id
         public ActionResult DeletePage(int id)
         {
             using (Db db = new Db())
@@ -235,6 +235,7 @@ namespace CmsShoppingCard.Areas.Admin.Controllers
             //Redirect
             return RedirectToAction("Index");
         }
+        // POST: Admin/Pages/ReorderPages/id
         [HttpPost]
         public void ReorderPages(int[] id)
         {
