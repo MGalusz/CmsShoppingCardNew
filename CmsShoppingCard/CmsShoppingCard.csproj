@@ -158,10 +158,12 @@
     <Compile Include="Models\Date\CategoryDTO.cs" />
     <Compile Include="Models\Date\Db.cs" />
     <Compile Include="Models\Date\PageDTO.cs" />
+    <Compile Include="Models\Date\ProdutcDTO.cs" />
     <Compile Include="Models\Date\SideBarDTO.cs" />
     <Compile Include="Models\ViewModels\Pages\PageVM.cs" />
     <Compile Include="Models\ViewModels\Pages\SideBarVM.cs" />
     <Compile Include="Models\ViewModels\Shop\CategoryVm.cs" />
+    <Compile Include="Models\ViewModels\Shop\ProductsVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -492,6 +494,7 @@
     <Content Include="fileman\lang\tr.json" />
     <Content Include="fileman\web.config" />
     <Content Include="Areas\Admin\Views\Shop\Categories.cshtml" />
+    <Content Include="Areas\Admin\Views\Shop\AddProduct.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\ckeditor.php" />
     <Content Include="Scripts\ckeditor\ckeditor_basic.js" />
