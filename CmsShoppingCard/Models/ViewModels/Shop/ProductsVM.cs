@@ -22,7 +22,7 @@ namespace CmsShoppingCard.Models.ViewModels.Shop
             Slug = row.Slug;
             Description = row.Description;
             Price = row.Price;
-            CategoruName = row.CategoruName;
+            CategoryName = row.CategoryName;
             CategoryId = row.CategoryId;
             ImageName = row.ImageName;
                 
@@ -34,7 +34,7 @@ namespace CmsShoppingCard.Models.ViewModels.Shop
         [Required]
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public string CategoruName { get; set; }
+        public string CategoryName { get; set; }
         [Required]
         public int CategoryId { get; set; }
         public string ImageName { get; set; }
