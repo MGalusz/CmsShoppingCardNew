@@ -214,7 +214,7 @@ namespace CmsShoppingCard.Areas.Admin.Controllers
 
             #region Upload Image
             // Create necessary directories 
-            var orginalDirectory = new DirectoryInfo(string.Format("{0}Image\\Uploads", Server.MapPath(@"\")));
+            var orginalDirectory = new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
 
             var pathString1 = Path.Combine(orginalDirectory.ToString(), "Products");
             var pathString2 = Path.Combine(orginalDirectory.ToString(), "Products\\" + id.ToString());
@@ -361,7 +361,7 @@ namespace CmsShoppingCard.Areas.Admin.Controllers
                 model.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
 
                 //Get all allety images
-                model.GalleryImages = Directory.EnumerateFiles(Server.MapPath("~/Image/Uploads/Products/" + id + "/Gallery/Thumbs"))
+                model.GalleryImages = Directory.EnumerateFiles(Server.MapPath("~/Images/Uploads/Products/" + id + "/Gallery/Thumbs"))
                     .Select(fn => Path.GetFileName(fn));
 
             }
@@ -380,7 +380,7 @@ namespace CmsShoppingCard.Areas.Admin.Controllers
             {
                 model.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
             }
-            model.GalleryImages = Directory.EnumerateFiles(Server.MapPath("~/Image/Uploads/Products/" + id + "/Gallery/Thumbs"))
+            model.GalleryImages = Directory.EnumerateFiles(Server.MapPath("~/Images/Uploads/Products/" + id + "/Gallery/Thumbs"))
             .Select(fn => Path.GetFileName(fn));
 
             //Check model state
@@ -443,7 +443,7 @@ namespace CmsShoppingCard.Areas.Admin.Controllers
                 }
 
                 // Set uplpad directory paths
-                var orginalDirectory = new DirectoryInfo(string.Format("{0}Image\\Uploads", Server.MapPath(@"\")));
+                var orginalDirectory = new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
 
                 var pathString1 = Path.Combine(orginalDirectory.ToString(), "Products\\" + id.ToString());
                 var pathString2 = Path.Combine(orginalDirectory.ToString(), "Products\\" + id.ToString() + "\\Thumbs");
@@ -504,7 +504,7 @@ namespace CmsShoppingCard.Areas.Admin.Controllers
 
             //Felete product folder
 
-            var orginalDirectory = new DirectoryInfo(string.Format("{0}Image\\Uploads", Server.MapPath(@"\")));
+            var orginalDirectory = new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
 
             string pathString = Path.Combine(orginalDirectory.ToString(), "Products\\" + id.ToString());
 
@@ -535,10 +535,10 @@ namespace CmsShoppingCard.Areas.Admin.Controllers
 
                     //set directory paths
 
-                    var orginalDirectory = new DirectoryInfo(string.Format("{0}Image\\Uploads", Server.MapPath(@"\")));
+                    var orginalDirectory = new DirectoryInfo(string.Format("{0}Images\\Uploads", Server.MapPath(@"\")));
 
                     string pathString1 = Path.Combine(orginalDirectory.ToString(), "Products\\" + id.ToString() + "\\Gallery");
-                    string pathString2 = Path.Combine(orginalDirectory.ToString(), "Products\\" + id.ToString() + "\\Thumbs");
+                    string pathString2 = Path.Combine(orginalDirectory.ToString(), "Products\\" + id.ToString() + "\\Gallery\\Thumbs");
 
                     //Set image paths
 
@@ -555,6 +555,20 @@ namespace CmsShoppingCard.Areas.Admin.Controllers
 
                 }
             }
+        }
+
+        // POST: Admin/Shop/DeleteImage
+        [HttpPost]
+        public void DeleteImage(int id , string imageName)
+        {
+            string fullPath1 = Request.MapPath("~/Images/Uploads/Products/" + id.ToString() + "/Gallery/" + imageName);
+            string fullPath2 = Request.MapPath("~/Images/Uploads/Products/" + id.ToString() + "/Gallery/Thumbs/" + imageName);
+
+            if (System.IO.File.Exists(fullPath1))
+                System.IO.File.Delete(fullPath1);
+
+            if (System.IO.File.Exists(fullPath2))
+                System.IO.File.Delete(fullPath2);
         }
     }
 }
