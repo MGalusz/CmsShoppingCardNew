@@ -72,5 +72,22 @@ namespace CmsShoppingCard.Controllers
             return PartialView(pageVMList);
         }
 
+        public ActionResult SidebarPartial()
+        {
+            //Declare model
+            SideBarVM model;
+
+            //Init model
+            using( Db db = new Db())
+            {
+                SideBarDTO dto = db.SideBar.Find(1);
+                model = new SideBarVM(dto);
+            }
+
+            //Return partial view with model
+
+            return PartialView(model);
+        }
+
     }
 }

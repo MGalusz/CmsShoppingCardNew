@@ -1,6 +1,18 @@
 ﻿table.sorting tr:not(.home){
     cursor: pointer;
 }
+span.loader {
+    display: none;
+}
+
+span.ajaxmsg {
+    background: green;
+    color: white;
+    padding: 10px;
+    display: none;
+    position: absolute;
+    bottom: 0;
+}
 
 .ui-state-highlight {
     border: 1px dashed #ccc;
@@ -16,9 +28,17 @@ span.ajax-text {
 }
 
 table.sorting.categories td {
-    padding : 20px !important
+    padding : 20px !important;
 }
 
 .ajaxdivtd{
-    position:absolute;
+    position : absolute;
+}
+
+.ajaxcart{
+    position: relative;
+    top: 5px;
+}
+.ib{
+    display : inline-block !important;
 }

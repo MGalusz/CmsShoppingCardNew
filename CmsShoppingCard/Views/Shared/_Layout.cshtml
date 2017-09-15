@@ -20,22 +20,30 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                     @Html.Action("PagesMenuPartial", "Pages");                
+                     @Html.Action("PagesMenuPartial", "Pages")                
                 </ul>
+                <ul class="navbar-collapse collapse navbar-right" >
 
+                    @Html.Action("CartPartial", "Cart")
+                    
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="container body-content">
         <div class="row">
+            <div class="col-xs-12 col-md-2" >
+               @Html.Action("CategoryMenuPartial", "Shop")
+
+            </div>
             @if (ViewBag.Sidebar == "Yes")
             {
                 <div class="col-xs-12 col-md-7">
                     @RenderBody()
                 </div>
                 <div class="col-xs-12 col-md-3">
-                 
+                 @Html.Action("SidebarPartial", "Pages")
                 </div>
             }
             else
@@ -44,14 +52,12 @@
                     @RenderBody()
                 </div>
             }
-        </div>
-           
+        </div>         
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
-
-    </div>
+    </div>    
     @Scripts.Render("~/bundles/scripts")
     @RenderSection("scripts", required: false)
 </body>
